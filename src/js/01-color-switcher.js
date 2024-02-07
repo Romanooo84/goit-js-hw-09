@@ -1,17 +1,17 @@
 // wyszukiwanie body
-let body = document.querySelector('body')
+let body = document.querySelector('body');
 // dodanie klasy do body
-body.classList.add("color")
+body.classList.add("color");
 // nasłuchowanie body
-body.addEventListener('click', start)
+body.addEventListener('click', start);
 //deklaracja zmiennych
-let timerId;
-let startButton;
+let timerId; //zmiena dla Timera
+let startButton; //zmienna dla przycisku
 
 // funkcja zmiany wyboru koloru
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-}
+};
 
 //funkcja uruchamiająca zmianę tła
 function start(event) {
@@ -19,7 +19,7 @@ function start(event) {
     // spradzanie nazwy przycisku
     const switchName = event.target.textContent.toLowerCase()
     if (switchName === 'start') {
-        startButton = event.target
+        startButton = event.target;
         //zablokowanie przysciku start
         startButton.disabled = true; 
         //uruchoimienie fukcji bgColor po 1sek.
@@ -35,4 +35,4 @@ function start(event) {
         startButton.disabled = false;
     }
 
-}
+};
