@@ -23,7 +23,7 @@ function start(event) {
         startButton = event.target;
         //zablokowanie przysciku start
         startButton.disabled = true; 
-        //uruchoimienie fukcji bgColor po 1sek.
+        //uruchoimienie fukcji bgColor z interwałem 1sek.
         //bgColor zmienia color tła body i odblokowuje przycisk start
             timerId = setInterval(bgColor => {
             body.style.backgroundColor = getRandomHexColor();
