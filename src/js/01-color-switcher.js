@@ -4,6 +4,7 @@ let body = document.querySelector('body');
 body.classList.add("color");
 // nasłuchowanie body
 body.addEventListener('click', start);
+
 //deklaracja zmiennych
 let timerId; //zmiena dla Timera
 let startButton; //zmienna dla przycisku
@@ -24,9 +25,8 @@ function start(event) {
         startButton.disabled = true; 
         //uruchoimienie fukcji bgColor po 1sek.
         //bgColor zmienia color tła body i odblokowuje przycisk start
-            timerId = setTimeout(bgColor => {
+            timerId = setInterval(bgColor => {
             body.style.backgroundColor = getRandomHexColor();
-            startButton.disabled = false;
         }, 1000);
     } else if (switchName === 'stop') {
         //usunięcie oczekiwania na wykonanie funkcji
