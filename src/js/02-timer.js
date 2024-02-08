@@ -53,17 +53,15 @@ function convertMs(ms) {
   const minutes = Math.floor(((ms % day) % hour) / minute);
 // Remaining seconds
   const seconds = Math.floor((((ms % day) % hour) % minute) / second);
-
   return { days, hours, minutes, seconds };
 }
 
 //funkcja uruchamiająca starter
 function startTimer() {
-  setDays()
+  timerId = setInterval(timer,100)
   startButton.removeEventListener('click', startTimer)
   startButton.addEventListener('click', clearTimer)
-  startButton.textContent='Stop'
-  timerId = setInterval(timer,100)
+  startButton.textContent = 'Stop'
 }
 
 // funkcja pracy timera
@@ -92,8 +90,11 @@ function clearTimer() {
   dataHours.textContent = '00'
   dataMinutes.textContent = '00'
   dataSeconds.textContent = '00'
+  startButton.removeEventListener('click', clearTimer)
   startButton.addEventListener('click', startTimer)
-  startButton.textContent='Start'
+  startButton.textContent = 'Start'
+  dateInput._flatpickr.clear()
+  difference = 0;
 }
 
 // nasłuchowanie
