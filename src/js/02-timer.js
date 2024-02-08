@@ -22,11 +22,11 @@ const options = {
       time_24hr: true,
       defaultDate: new Date(),
       minuteIncrement: 1,
-      //funkcja sprawdzająca date po wybraniu daty przez uzytkownika
+      //funkcja sprawdzająca date po wybraniu daty przez uzytkownika i zamknięciu kalendarza
       onClose(selectedDates) {
         userDate = selectedDates[0];
           if (userDate >= new Date()) { // sprawdzenie waruków daty
-            startButton.disabled = false; //zablokowanie przycisku start
+            startButton.disabled = false; //odblokowanie przycisku start
             difference = userDate - new Date()//obliczenie rożnicy dat
             return difference
           } else if (userDate <= new Date()) {
@@ -64,7 +64,6 @@ function startTimer() {
   startButton.addEventListener('click', clearTimer)
   startButton.textContent='Stop'
   timerId = setInterval(timer,100)
-  
 }
 
 // funkcja pracy timera
@@ -80,10 +79,10 @@ function timer() {
 // funkcja wyswietlania poszczególnych elementów daty
 function setDays() {
   timeDiff = convertMs(difference)
-  dataDays.textContent = timeDiff.days
-  dataHours.textContent = timeDiff.hours
-  dataMinutes.textContent = timeDiff.minutes
-  dataSeconds.textContent = timeDiff.seconds
+  dataDays.textContent = timeDiff.days.toString().padStart(2, '0'); //ustawienie nowej liczby w polu daty jako string i z dwoma miejscami (jezeli jedna cyfra to z przodu jest 0)
+  dataHours.textContent = timeDiff.hours.toString().padStart(2, '0');
+  dataMinutes.textContent = timeDiff.minutes.toString().padStart(2, '0');
+  dataSeconds.textContent = timeDiff.seconds.toString().padStart(2, '0');
 }
 
 // funkcja wyłaczenia timera
@@ -95,10 +94,9 @@ function clearTimer() {
   dataSeconds.textContent = '00'
   startButton.addEventListener('click', startTimer)
   startButton.textContent='Start'
-
 }
 
-
+// nasłuchowanie
 dateInput.addEventListener('focus', function () {
   fp = flatpickr(dateInput, options); // otworzenie kalendarza
 })
