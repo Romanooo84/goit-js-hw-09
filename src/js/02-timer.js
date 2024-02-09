@@ -1,5 +1,29 @@
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css"
+import Notiflix from 'notiflix';
+
+//inicjalizacja Notyiflix
+Notiflix.Notify.init({
+  width: '300px',
+  position: 'center-top',
+  distance: '40px',
+  opacity: 1,
+  borderRadius: '5px',
+  cssAnimation: true,
+  cssAnimationDuration: 700,
+  cssAnimationStyle: 'zoom', // 'fade' - 'zoom' - 'from-right' - 'from-top' - 'from-bottom' - 'from-left'
+  closeButton: true,
+  useIcon: true,
+  warning: {
+    background: '#ff5549',
+    textColor: '#fff',
+    childClassName: 'notiflix-notify-warning',
+    notiflixIconColor: 'rgba(0,0,0,0.2)',
+    fontAwesomeClassName: 'fas fa-exclamation-circle',
+    fontAwesomeIconColor: 'rgba(0,0,0,0.2)',
+    backOverlayColor: 'rgba(238,191,49,0.2)',
+  },
+});
 
 // wyszukiwanie elementów html
 const dateInput = document.querySelector("#datetime-picker");
@@ -31,7 +55,7 @@ const options = {
             return difference
           } else if (userDate <= new Date()) {
               dateInput._flatpickr.setDate(new Date()) //ustawienie aktualnej daty
-              window.alert("Please choose a date in the future") //wyswietlenie alertu
+            Notiflix.Notify.warning("Please choose a date in the future")
           }
       },
     
