@@ -80,7 +80,7 @@ function convertMs(ms) {
   return { days, hours, minutes, seconds };
 }
 
-//funkcja uruchamiająca starter
+//funkcja uruchamiająca timer
 function startTimer() {
   timerId = setInterval(timer,100)
   startButton.removeEventListener('click', startTimer)
