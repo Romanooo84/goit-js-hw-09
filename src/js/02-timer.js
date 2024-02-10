@@ -101,7 +101,7 @@ function timer() {
 
 // funkcja wyswietlania poszczególnych elementów daty
 function setDays() {
-  timeDiff = convertMs(difference)
+  let timeDiff = convertMs(difference)
   dataDays.textContent = timeDiff.days.toString().padStart(2, '0'); //ustawienie nowej liczby w polu daty jako string i z dwoma miejscami (jezeli jedna cyfra to z przodu jest 0)
   dataHours.textContent = timeDiff.hours.toString().padStart(2, '0');
   dataMinutes.textContent = timeDiff.minutes.toString().padStart(2, '0');
