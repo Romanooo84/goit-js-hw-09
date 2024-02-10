@@ -9,10 +9,10 @@ Notiflix.Notify.init({
   distance: '40px',
   opacity: 1,
   borderRadius: '5px',
+  timeout: 5000,
   cssAnimation: true,
   cssAnimationDuration: 700,
   cssAnimationStyle: 'zoom', // 'fade' - 'zoom' - 'from-right' - 'from-top' - 'from-bottom' - 'from-left'
-  closeButton: true,
   useIcon: true,
   warning: {
     background: '#ff5549',
@@ -116,6 +116,7 @@ function clearTimer() {
   dataMinutes.textContent = '00'
   dataSeconds.textContent = '00'
   startButton.removeEventListener('click', clearTimer)
+  startButton.disabled = true;
   startButton.textContent = 'Start'
   dateInput._flatpickr.clear()
   difference = 0;
