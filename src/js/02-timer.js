@@ -116,10 +116,10 @@ function clearTimer() {
   dataMinutes.textContent = '00'
   dataSeconds.textContent = '00'
   startButton.removeEventListener('click', clearTimer)
-  startButton.addEventListener('click', startTimer)
   startButton.textContent = 'Start'
   dateInput._flatpickr.clear()
   difference = 0;
+  startButton.addEventListener('click', startTimer)
 }
 
 // nasłuchowanie
