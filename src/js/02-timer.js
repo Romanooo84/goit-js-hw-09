@@ -123,7 +123,7 @@ function clearTimer() {
 
 // nasłuchowanie
 dateInput.addEventListener('focus', function () {
-  fp = flatpickr(dateInput, options); // otworzenie kalendarza
+  let fp = flatpickr(dateInput, options); // otworzenie kalendarza
 })
 startButton.addEventListener('click', startTimer)
 
