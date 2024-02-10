@@ -39,6 +39,7 @@ startButton.disabled = true;
 //deklaracja zmiennych globalnych
 let userDate; //data wybrana przez uzytkownika
 let timerId //zmienna dla timera
+let difference //różnica czasu
 
 //ustawienie kalendarza
 const options = {
